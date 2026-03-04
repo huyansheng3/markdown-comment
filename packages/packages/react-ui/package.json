@@ -1,7 +1,19 @@
 {
-  "name": "@comment-md/react-ui",
-  "version": "0.0.1",
-  "description": "React UI components for comment-md",
+  "name": "comment-md-react-ui",
+  "version": "0.1.0",
+  "description": "React UI components for comment-md - sidebar, highlights, themes",
+  "homepage": "https://github.com/huyansheng3/markdown-comment#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huyansheng3/markdown-comment.git",
+    "directory": "packages/packages/react-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/huyansheng3/markdown-comment/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -23,7 +35,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@comment-md/core": "workspace:*"
+    "comment-md-core": "^0.1.0"
   },
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -53,5 +65,6 @@
     "ui"
   ],
   "author": "huyansheng",
-  "license": "MIT"
+  "license": "MIT",
+  "sideEffects": false
 }

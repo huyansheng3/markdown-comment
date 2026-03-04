@@ -1,7 +1,19 @@
 {
-  "name": "@comment-md/remark-plugin",
-  "version": "0.0.1",
-  "description": "Remark plugin for comment-md annotations",
+  "name": "comment-md-remark-plugin",
+  "version": "0.1.0",
+  "description": "Remark plugin for comment-md annotations - human-AI collaborative commenting",
+  "homepage": "https://github.com/huyansheng3/markdown-comment#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huyansheng3/markdown-comment.git",
+    "directory": "packages/packages/remark-plugin"
+  },
+  "bugs": {
+    "url": "https://github.com/huyansheng3/markdown-comment/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -46,5 +58,6 @@
     "annotation"
   ],
   "author": "huyansheng",
-  "license": "MIT"
+  "license": "MIT",
+  "sideEffects": false
 }

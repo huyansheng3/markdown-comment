@@ -2,7 +2,10 @@
 
 A Markdown extension for human-AI collaborative commenting and review.
 
+English | [中文](./README.zh-CN.md)
+
 [![Deploy to GitHub Pages](https://github.com/huyansheng3/markdown-comment/actions/workflows/deploy.yml/badge.svg)](https://github.com/huyansheng3/markdown-comment/actions/workflows/deploy.yml)
+[![npm version](https://img.shields.io/npm/v/comment-md-core.svg)](https://www.npmjs.com/package/comment-md-core)
 
 ## 🎯 Overview
 
@@ -24,11 +27,11 @@ A Markdown extension for human-AI collaborative commenting and review.
 
 ## 📦 Packages
 
-| Package | Description |
-|---------|-------------|
-| `@comment-md/core` | Core parser, serializer, and APIs |
-| `@comment-md/remark-plugin` | Remark plugin for annotation syntax |
-| `@comment-md/react-ui` | React components (sidebar, highlights, themes) |
+| Package | Description | NPM |
+|---------|-------------|-----|
+| `comment-md-core` | Core parser, serializer, and APIs | [![npm](https://img.shields.io/npm/v/comment-md-core.svg)](https://www.npmjs.com/package/comment-md-core) |
+| `comment-md-remark-plugin` | Remark plugin for annotation syntax | [![npm](https://img.shields.io/npm/v/comment-md-remark-plugin.svg)](https://www.npmjs.com/package/comment-md-remark-plugin) |
+| `comment-md-react-ui` | React components (sidebar, highlights, themes) | [![npm](https://img.shields.io/npm/v/comment-md-react-ui.svg)](https://www.npmjs.com/package/comment-md-react-ui) |
 
 ## 🔗 Demo
 
@@ -84,23 +87,15 @@ Good suggestion! I'll expand this section with:
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/huyansheng3/markdown-comment.git
-cd markdown-comment/packages
-
-# Install dependencies
-pnpm install
-
-# Start development
-pnpm dev
+npm install comment-md-core comment-md-remark-plugin comment-md-react-ui
 ```
 
 ### Usage with React
 
 ```tsx
-import { parse } from '@comment-md/core';
-import { remarkCommentMd } from '@comment-md/remark-plugin';
-import { CommentProvider, CommentSidebar } from '@comment-md/react-ui';
+import { parse } from 'comment-md-core';
+import { remarkCommentMd } from 'comment-md-remark-plugin';
+import { CommentProvider, CommentSidebar } from 'comment-md-react-ui';
 import ReactMarkdown from 'react-markdown';
 
 function App() {
@@ -131,7 +126,7 @@ import {
   resolveThread,      // Mark an annotation as resolved
   addComment,         // Add a comment to an annotation
   createAnnotation,   // Create a new annotation
-} from '@comment-md/core';
+} from 'comment-md-core';
 ```
 
 ### React Components
@@ -143,13 +138,13 @@ import {
   SelectionHandler,   // Handle text selection for new annotations
   ThemeProvider,      // Theme customization
   I18nProvider,       // Internationalization
-} from '@comment-md/react-ui';
+} from 'comment-md-react-ui';
 ```
 
 ## 🎨 Theming
 
 ```tsx
-import { ThemeProvider, defaultLightTheme } from '@comment-md/react-ui';
+import { ThemeProvider, defaultLightTheme } from 'comment-md-react-ui';
 
 const customTheme = {
   ...defaultLightTheme,
