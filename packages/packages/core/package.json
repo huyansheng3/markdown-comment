@@ -1,0 +1,31 @@
+{
+  "name": "@comment-md/core",
+  "version": "0.0.1",
+  "description": "Core parser and API for comment-md",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest",
+    "clean": "rimraf dist"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "keywords": ["markdown", "comment", "annotation", "ai", "collaboration"],
+  "author": "huyansheng",
+  "license": "MIT"
+}

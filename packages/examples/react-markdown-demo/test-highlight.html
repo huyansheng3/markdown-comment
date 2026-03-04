@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Annotation</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #1a1a2e; color: #eee; }
+    .comment-md-highlight { 
+      text-decoration: underline dotted orange;
+      cursor: pointer;
+    }
+    .comment-md-highlight:hover {
+      background: rgba(251, 191, 36, 0.1);
+    }
+    .comment-md-highlight.active {
+      text-decoration: underline solid orange;
+      background: rgba(251, 191, 36, 0.15);
+    }
+    .comment-md-highlight a {
+      border-bottom: 2px dotted orange !important;
+      text-decoration: none !important;
+      color: cyan;
+    }
+    .comment-md-highlight.active a {
+      border-bottom: 2px solid orange !important;
+      background: rgba(251, 191, 36, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <h1>测试评论高亮</h1>
+  
+  <h2>正常段落</h2>
+  <p>
+    <span class="comment-md-highlight open" data-annotation-id="test-1">
+      这是一段被评论的普通文本内容。
+    </span>
+  </p>
+  
+  <h2>链接测试</h2>
+  <p>
+    <span class="comment-md-highlight open" data-annotation-id="test-2">
+      相关链接：<a href="#">官方文档</a> | <a href="#">GitHub</a> | <a href="#">在线演示</a>
+    </span>
+  </p>
+  
+  <h2>激活状态测试</h2>
+  <p>
+    <span class="comment-md-highlight open active" data-annotation-id="test-3">
+      这是激活状态的链接：<a href="#">点击查看</a>
+    </span>
+  </p>
+  
+  <script>
+    document.querySelectorAll('.comment-md-highlight').forEach(el => {
+      el.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        document.querySelectorAll('.comment-md-highlight.active').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

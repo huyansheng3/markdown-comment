@@ -1,0 +1,32 @@
+{
+  "name": "comment-md",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Markdown extension for human-AI collaborative commenting",
+  "author": "huyansheng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huyansheng/comment-md"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm -r --parallel dev",
+    "test": "pnpm -r test",
+    "lint": "eslint packages --ext .ts,.tsx",
+    "clean": "pnpm -r clean && rimraf node_modules"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "eslint": "^8.56.0",
+    "rimraf": "^5.0.5",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@9.15.9+sha512.68046141893c66fad01c079231128e9afb89ef87e2691d69e4d40eee228988295fd4682181bae55b58418c3a253bde65a505ec7c5f9403ece5cc3cd37dcf2531"
+}

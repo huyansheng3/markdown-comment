@@ -1,0 +1,20 @@
+# 讨论元数据
+topic: "Markdown 文档评论协作系统设计"
+created: 2026-02-28
+current_round: 9
+
+# 过期检测配置（可选）
+max_stale_rounds: 3
+
+# 决策追踪
+decisions:
+  - id: D1
+    title: "评论存储与生命周期策略（A+C 混合 + thread + 归档）"
+    status: confirmed
+    confirmed_at: 4
+    doc_path: "./decisions/D01-storage-and-lifecycle.md"
+  - id: D3
+    title: "评论协议语法设计（annotation + comment 子标签）"
+    status: confirmed
+    confirmed_at: 9
+    doc_path: "./decisions/D03-syntax-design.md"

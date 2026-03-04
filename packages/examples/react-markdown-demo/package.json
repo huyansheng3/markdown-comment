@@ -1,0 +1,30 @@
+{
+  "name": "react-markdown-demo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Demo app for comment-md with react-markdown",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@comment-md/core": "workspace:*",
+    "@comment-md/remark-plugin": "workspace:*",
+    "@comment-md/react-ui": "workspace:*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "rehype-katex": "^7.0.0",
+    "katex": "^0.16.9"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12"
+  }
+}
