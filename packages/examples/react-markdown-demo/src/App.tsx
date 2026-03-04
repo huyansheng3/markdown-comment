@@ -147,7 +147,7 @@ function AnnotationClickHandler({ containerRef }: { containerRef: React.RefObjec
 
 function App() {
   const [locale, setLocale] = useState<Locale>('zh-CN');
-  const [isDarkMode, setIsDarkMode] = useState(true); // 默认深色主题
+  const [isDarkMode, setIsDarkMode] = useState(false); // 默认亮色主题
   const sampleMarkdown = locale === 'zh-CN' ? sampleMarkdownChinese : sampleMarkdownEnglish;
   const currentTheme = isDarkMode ? darkTheme : lightTheme;
   
