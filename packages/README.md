@@ -2,7 +2,7 @@
 
 > Markdown extension for human-AI collaborative commenting
 
-[![npm version](https://img.shields.io/npm/v/@comment-md/core.svg)](https://www.npmjs.com/package/@comment-md/core)
+[![npm version](https://img.shields.io/npm/v/comment-md-core.svg)](https://www.npmjs.com/package/comment-md-core)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
@@ -18,9 +18,9 @@
 
 | Package | Description |
 |---------|-------------|
-| [@comment-md/core](./packages/core) | Core parser and API |
-| [@comment-md/remark-plugin](./packages/remark-plugin) | Remark plugin for react-markdown integration |
-| [@comment-md/react-ui](./packages/react-ui) | React UI components |
+| [comment-md-core](./packages/core) | Core parser and API |
+| [comment-md-remark-plugin](./packages/remark-plugin) | Remark plugin for react-markdown integration |
+| [comment-md-react-ui](./packages/react-ui) | React UI components |
 
 ## Syntax
 
@@ -45,20 +45,19 @@ I've added more explanation below.
 ### Installation
 
 ```bash
-pnpm add @comment-md/core @comment-md/remark-plugin @comment-md/react-ui
+npm install comment-md-core comment-md-remark-plugin comment-md-react-ui
 ```
 
 ### Basic Usage with React
 
 ```tsx
 import ReactMarkdown from 'react-markdown';
-import { parse } from '@comment-md/core';
-import { remarkCommentMd } from '@comment-md/remark-plugin';
+import { parse } from 'comment-md-core';
+import { remarkCommentMd } from 'comment-md-remark-plugin';
 import {
   CommentProvider,
-  AnnotationHighlight,
   CommentSidebar,
-} from '@comment-md/react-ui';
+} from 'comment-md-react-ui';
 
 function App() {
   const { annotations } = parse(markdownSource);
@@ -66,17 +65,7 @@ function App() {
   return (
     <CommentProvider annotations={annotations}>
       <div style={{ display: 'flex' }}>
-        <ReactMarkdown
-          remarkPlugins={[remarkCommentMd]}
-          components={{
-            annotation: ({ children, ...props }) => (
-              <AnnotationHighlight id={props.id} status={props.status}>
-                {children}
-              </AnnotationHighlight>
-            ),
-            comment: () => null,
-          }}
-        >
+        <ReactMarkdown remarkPlugins={[remarkCommentMd]}>
           {markdownSource}
         </ReactMarkdown>
         <CommentSidebar />
@@ -88,7 +77,7 @@ function App() {
 
 ## API
 
-### @comment-md/core
+### comment-md-core
 
 ```typescript
 import {
@@ -96,7 +85,7 @@ import {
   exportAiView,    // Export AI-optimized view
   resolveThread,   // Close an annotation thread
   applyEdits,      // Apply edits with auto-resolve
-} from '@comment-md/core';
+} from 'comment-md-core';
 
 // Parse a document
 const result = parse(source);
@@ -123,8 +112,7 @@ pnpm build
 # Run tests
 pnpm test
 
-# Run example
-cd examples/react-markdown-demo
+# Start development mode
 pnpm dev
 ```
 
