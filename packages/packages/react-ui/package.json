@@ -1,6 +1,6 @@
 {
   "name": "comment-md-react-ui",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React UI components for comment-md - sidebar, highlights, themes",
   "homepage": "https://github.com/huyansheng3/markdown-comment#readme",
   "repository": {
@@ -26,7 +26,8 @@
     "./styles.css": "./dist/styles.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup",

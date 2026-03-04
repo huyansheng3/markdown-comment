@@ -1,6 +1,6 @@
 {
   "name": "comment-md-remark-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Remark plugin for comment-md annotations - human-AI collaborative commenting",
   "homepage": "https://github.com/huyansheng3/markdown-comment#readme",
   "repository": {
@@ -25,7 +25,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsup",

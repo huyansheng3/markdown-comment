@@ -1,6 +1,6 @@
 {
   "name": "comment-md-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core parser and API for comment-md - human-AI collaborative commenting",
   "homepage": "https://github.com/huyansheng3/markdown-comment#readme",
   "repository": {
@@ -24,7 +24,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md"],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
