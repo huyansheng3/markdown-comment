@@ -4,8 +4,8 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
-import { parse, type Annotation } from '@comment-md/core';
-import { remarkCommentMd } from '@comment-md/remark-plugin';
+import { parse, type Annotation } from 'comment-md-core';
+import { remarkCommentMd } from 'comment-md-remark-plugin';
 import {
   CommentProvider,
   CommentSidebar,
@@ -15,7 +15,7 @@ import {
   defaultLightTheme,
   type Locale,
   useComments,
-} from '@comment-md/react-ui';
+} from 'comment-md-react-ui';
 import { sampleMarkdownChinese, sampleMarkdownEnglish } from './sampleContent';
 
 // Light theme - Clean and minimal

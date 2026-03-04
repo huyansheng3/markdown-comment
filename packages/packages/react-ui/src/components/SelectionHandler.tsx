@@ -9,7 +9,7 @@ import React, { useState, useEffect, useCallback, useRef, type CSSProperties } f
 import { useComments } from '../context/CommentContext';
 import { useTheme } from '../theme/ThemeProvider';
 import { useI18n } from '../i18n/I18nProvider';
-import { generateId } from '@comment-md/core';
+import { generateId } from 'comment-md-core';
 
 /**
  * Props for SelectionHandler

@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@comment-md/core": "workspace:*",
-    "@comment-md/remark-plugin": "workspace:*",
-    "@comment-md/react-ui": "workspace:*",
+    "comment-md-core": "workspace:*",
+    "comment-md-remark-plugin": "workspace:*",
+    "comment-md-react-ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^9.0.1",

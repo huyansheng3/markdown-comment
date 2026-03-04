@@ -8,5 +8,10 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   treeshake: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'comment-md-core'],
+  esbuildOptions(options) {
+    options.alias = {
+      '@comment-md/core': 'comment-md-core',
+    };
+  },
 });

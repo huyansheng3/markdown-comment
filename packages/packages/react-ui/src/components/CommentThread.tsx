@@ -6,7 +6,7 @@
  */
 
 import React, { type CSSProperties } from 'react';
-import type { Comment } from '@comment-md/core';
+import type { Comment } from 'comment-md-core';
 import { useTheme } from '../theme/ThemeProvider';
 import { useI18n } from '../i18n/I18nProvider';
 

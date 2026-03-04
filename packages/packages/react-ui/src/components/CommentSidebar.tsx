@@ -12,7 +12,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import { useI18n } from '../i18n/I18nProvider';
 import { CommentThread } from './CommentThread';
 import { CommentInput } from './CommentInput';
-import type { Annotation } from '@comment-md/core';
+import type { Annotation } from 'comment-md-core';
 
 /**
  * Props for CommentSidebar

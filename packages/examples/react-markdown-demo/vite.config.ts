@@ -19,18 +19,18 @@ export default defineConfig({
     ],
     // 排除 workspace 包，让它们实时编译
     exclude: [
-      '@comment-md/core',
-      '@comment-md/react-ui', 
-      '@comment-md/remark-plugin',
+      'comment-md-core',
+      'comment-md-react-ui', 
+      'comment-md-remark-plugin',
     ],
   },
   
   // 解析 workspace 包
   resolve: {
     alias: {
-      '@comment-md/core': path.resolve(__dirname, '../../packages/core/src'),
-      '@comment-md/react-ui': path.resolve(__dirname, '../../packages/react-ui/src'),
-      '@comment-md/remark-plugin': path.resolve(__dirname, '../../packages/remark-plugin/src'),
+      'comment-md-core': path.resolve(__dirname, '../../packages/core/src'),
+      'comment-md-react-ui': path.resolve(__dirname, '../../packages/react-ui/src'),
+      'comment-md-remark-plugin': path.resolve(__dirname, '../../packages/remark-plugin/src'),
     },
   },
   

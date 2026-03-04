@@ -12,7 +12,7 @@ import React, {
   useMemo,
   type ReactNode,
 } from 'react';
-import type { Annotation, Comment } from '@comment-md/core';
+import type { Annotation, Comment } from 'comment-md-core';
 
 /**
  * Context value interface
