@@ -30,3 +30,6 @@ coverage/
 
 # Obsidian (local notes)
 .obsidian/
+
+packages/examples/react-markdown-demo/node_modules
+packages/examples/react-markdown-demo/dist
