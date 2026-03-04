@@ -7,7 +7,7 @@
 
 import { visit } from 'unist-util-visit';
 import type { Plugin, Transformer } from 'unified';
-import type { Root, Html, Parent, RootContent, Code, Table, List, Paragraph, Blockquote, Image } from 'mdast';
+import type { Root, Html, Parent, RootContent, Code, Table, List, Paragraph, Blockquote, Image, Node } from 'mdast';
 
 // Regex patterns
 const ANNOTATION_OPEN_PATTERN = /<annotation\s+([^>]*)>\s*$/i;
@@ -134,16 +134,16 @@ export const remarkCommentMd: Plugin<[RemarkCommentMdOptions?], Root> = (options
   const { includeResolved = true } = options;
   
   const transformer: Transformer<Root> = (tree: Root) => {
-    visit(tree, (node: Parent) => {
-      if (!('children' in node) || !Array.isArray(node.children)) {
+    visit(tree, (node: Node) => {
+      if (!('children' in node) || !Array.isArray((node as Parent).children)) {
         return;
       }
       
-      const children = node.children as RootContent[];
+      const parent = node as Parent;
       let i = 0;
       
-      while (i < children.length) {
-        const child = children[i];
+      while (i < parent.children.length) {
+        const child = parent.children[i] as RootContent;
         
         // Look for annotation opening tag
         if (child.type === 'html' && isAnnotationOpenTag(child as Html)) {
@@ -157,8 +157,8 @@ export const remarkCommentMd: Plugin<[RemarkCommentMdOptions?], Root> = (options
             
             // Find the closing tag
             let closeIndex = -1;
-            for (let j = i + 1; j < children.length; j++) {
-              const candidate = children[j];
+            for (let j = i + 1; j < parent.children.length; j++) {
+              const candidate = parent.children[j] as RootContent;
               if (candidate.type === 'html' && isAnnotationCloseTag(candidate as Html)) {
                 closeIndex = j;
                 break;
@@ -167,7 +167,7 @@ export const remarkCommentMd: Plugin<[RemarkCommentMdOptions?], Root> = (options
             
             if (closeIndex > i) {
               // Extract children between open and close tags
-              const annotationChildren = children.slice(i + 1, closeIndex);
+              const annotationChildren = parent.children.slice(i + 1, closeIndex) as RootContent[];
               
               // Add annotation attributes to the children
               const annotatedChildren = annotateChildren(annotationChildren, annotationId, status);
@@ -175,10 +175,10 @@ export const remarkCommentMd: Plugin<[RemarkCommentMdOptions?], Root> = (options
               // Skip resolved if not including them
               if (!includeResolved && status === 'resolved') {
                 // Remove all nodes from open to close
-                children.splice(i, closeIndex - i + 1);
+                parent.children.splice(i, closeIndex - i + 1);
               } else {
                 // Replace open tag through close tag with annotated children
-                children.splice(i, closeIndex - i + 1, ...annotatedChildren);
+                parent.children.splice(i, closeIndex - i + 1, ...annotatedChildren);
                 // Move past the inserted children
                 i += annotatedChildren.length;
               }
@@ -190,12 +190,12 @@ export const remarkCommentMd: Plugin<[RemarkCommentMdOptions?], Root> = (options
         
         // Also filter out standalone comment tags
         if (child.type === 'html' && isCommentTag(child as Html)) {
-          children.splice(i, 1);
+          parent.children.splice(i, 1);
           continue;
         }
         
         if (child.type === 'html' && isCommentCloseTag(child as Html)) {
-          children.splice(i, 1);
+          parent.children.splice(i, 1);
           continue;
         }
         
