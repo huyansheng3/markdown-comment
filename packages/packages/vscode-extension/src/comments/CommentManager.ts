@@ -375,7 +375,11 @@ export class CommentManager implements vscode.Disposable {
 
     // Use comment-md-core's createAnnotation to add inline annotation
     try {
+      // Pre-generate a unique ID so we know exactly which annotation was created
+      const newAnnotationId = `ann-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+      
       const newSource = createAnnotation(text, {
+        id: newAnnotationId,  // Pass our pre-generated ID
         content: targetText,
         comment: {
           by: author,
@@ -392,10 +396,6 @@ export class CommentManager implements vscode.Disposable {
       edit.replace(document.uri, fullRange, newSource);
       
       await vscode.workspace.applyEdit(edit);
-
-      // Extract the new annotation ID from the source
-      const idMatch = newSource.match(/<annotation id="([^"]+)"/);
-      const newAnnotationId = idMatch ? idMatch[1] : null;
 
       vscode.window.showInformationMessage('Comment added successfully');
       this.refresh();
