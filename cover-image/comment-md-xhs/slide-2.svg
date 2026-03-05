@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#11998e"/>
+      <stop offset="100%" style="stop-color:#38ef7d"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGrad2)"/>
+  
+  <!-- Decorative shapes -->
+  <circle cx="950" cy="150" r="180" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="80" cy="950" r="120" fill="rgba(255,255,255,0.08)"/>
+  
+  <!-- Title -->
+  <text x="540" y="120" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="48" fill="#ffffff" text-anchor="middle" font-weight="bold">📝 语法示例</text>
+  
+  <!-- Code block -->
+  <rect x="60" y="180" width="960" height="780" fill="#1e1e1e" rx="16"/>
+  
+  <!-- Code content -->
+  <text x="100" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&lt;annotation</text>
+  <text x="310" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#9cdcfe">id</text>
+  <text x="355" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#d4d4d4">=</text>
+  <text x="380" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#ce9178">"c1"</text>
+  <text x="460" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#9cdcfe">status</text>
+  <text x="565" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#d4d4d4">=</text>
+  <text x="590" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#ce9178">"open"</text>
+  <text x="700" y="240" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&gt;</text>
+  
+  <text x="100" y="310" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#d4d4d4">这段内容需要讨论。</text>
+  
+  <text x="100" y="400" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&lt;comment</text>
+  <text x="255" y="400" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#9cdcfe">by</text>
+  <text x="295" y="400" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#d4d4d4">=</text>
+  <text x="320" y="400" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#ce9178">"human"</text>
+  <text x="440" y="400" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&gt;</text>
+  <text x="100" y="450" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#6a9955">数据来源是什么？需要补充引用。</text>
+  <text x="100" y="500" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&lt;/comment&gt;</text>
+  
+  <text x="100" y="590" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&lt;comment</text>
+  <text x="255" y="590" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#9cdcfe">by</text>
+  <text x="295" y="590" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#d4d4d4">=</text>
+  <text x="320" y="590" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#ce9178">"ai"</text>
+  <text x="380" y="590" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&gt;</text>
+  <text x="100" y="640" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#6a9955">好的，我找到了原始论文，</text>
+  <text x="100" y="690" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#6a9955">已添加引用链接。</text>
+  <text x="100" y="740" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&lt;/comment&gt;</text>
+  
+  <text x="100" y="830" font-family="Monaco, 'Courier New', monospace" font-size="26" fill="#c586c0">&lt;/annotation&gt;</text>
+  
+  <!-- Footer -->
+  <text x="540" y="1020" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" fill="rgba(255,255,255,0.9)" text-anchor="middle">兼容现有 Markdown 生态 ✨</text>
+</svg>

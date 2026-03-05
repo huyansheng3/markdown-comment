@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <!-- Blueprint grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e4a8a" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="gridLarge" width="200" height="200" patternUnits="userSpaceOnUse">
+      <path d="M 200 0 L 0 0 0 200" fill="none" stroke="#2a5a9a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#0a2a5a"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#gridLarge)"/>
+  
+  <!-- Title area -->
+  <text x="80" y="80" font-family="Monaco, 'Courier New', monospace" font-size="48" fill="#ffffff" font-weight="bold">comment-md</text>
+  <text x="80" y="130" font-family="Monaco, 'Courier New', monospace" font-size="24" fill="#7eb8ff">人机协作评论 · Markdown 扩展协议</text>
+  
+  <!-- Dimension line top -->
+  <line x1="80" y1="150" x2="600" y2="150" stroke="#5a9aff" stroke-width="1"/>
+  <polygon points="80,145 80,155 70,150" fill="#5a9aff"/>
+  <polygon points="600,145 600,155 610,150" fill="#5a9aff"/>
+  
+  <!-- Center: Markdown Document -->
+  <g transform="translate(650, 250)">
+    <!-- Document outline -->
+    <rect x="0" y="0" width="300" height="400" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <rect x="0" y="0" width="300" height="50" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+    
+    <!-- Document header -->
+    <text x="20" y="35" font-family="Monaco, 'Courier New', monospace" font-size="18" fill="#ffffff">README.md</text>
+    
+    <!-- Document content lines -->
+    <rect x="20" y="70" width="180" height="12" fill="#7eb8ff" rx="2"/>
+    <rect x="20" y="95" width="260" height="12" fill="#5a7aaa" rx="2"/>
+    <rect x="20" y="120" width="200" height="12" fill="#5a7aaa" rx="2"/>
+    
+    <!-- Annotation highlight -->
+    <rect x="15" y="150" width="270" height="80" fill="none" stroke="#ffa500" stroke-width="2" stroke-dasharray="8,4" rx="4"/>
+    <text x="25" y="175" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#ffa500">&lt;annotation id="c1"&gt;</text>
+    <rect x="30" y="185" width="220" height="10" fill="#7a9acc" rx="2"/>
+    <rect x="30" y="200" width="180" height="10" fill="#7a9acc" rx="2"/>
+    <text x="25" y="230" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#ffa500">&lt;/annotation&gt;</text>
+    
+    <!-- More content -->
+    <rect x="20" y="250" width="240" height="12" fill="#5a7aaa" rx="2"/>
+    <rect x="20" y="275" width="200" height="12" fill="#5a7aaa" rx="2"/>
+    <rect x="20" y="300" width="260" height="12" fill="#5a7aaa" rx="2"/>
+    <rect x="20" y="325" width="180" height="12" fill="#5a7aaa" rx="2"/>
+    <rect x="20" y="350" width="220" height="12" fill="#5a7aaa" rx="2"/>
+  </g>
+  
+  <!-- Left side: Human -->
+  <g transform="translate(100, 320)">
+    <!-- Human icon circle -->
+    <circle cx="100" cy="60" r="50" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <!-- Head -->
+    <circle cx="100" cy="45" r="18" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <!-- Body -->
+    <path d="M 75 85 Q 100 70 125 85" fill="none" stroke="#ffffff" stroke-width="2"/>
+    
+    <text x="100" y="130" font-family="Monaco, 'Courier New', monospace" font-size="20" fill="#ffffff" text-anchor="middle">HUMAN</text>
+    <text x="100" y="155" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#7eb8ff" text-anchor="middle">评论者 · Reviewer</text>
+    
+    <!-- Comment bubble -->
+    <g transform="translate(160, 20)">
+      <rect x="0" y="0" width="180" height="60" fill="none" stroke="#ffa500" stroke-width="2" rx="8"/>
+      <polygon points="-10,30 0,25 0,35" fill="#0a2a5a" stroke="#ffa500" stroke-width="2"/>
+      <text x="15" y="25" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#ffa500">&lt;comment by="human"&gt;</text>
+      <text x="15" y="45" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#ffffff">这里需要补充细节</text>
+    </g>
+  </g>
+  
+  <!-- Right side: AI -->
+  <g transform="translate(1150, 320)">
+    <!-- AI icon circle -->
+    <circle cx="100" cy="60" r="50" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <!-- Robot face -->
+    <rect x="75" y="35" width="50" height="40" fill="none" stroke="#ffffff" stroke-width="2" rx="8"/>
+    <circle cx="88" cy="52" r="5" fill="#7eb8ff"/>
+    <circle cx="112" cy="52" r="5" fill="#7eb8ff"/>
+    <rect x="85" y="62" width="30" height="3" fill="#7eb8ff"/>
+    <!-- Antenna -->
+    <line x1="100" y1="35" x2="100" y2="20" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="100" cy="18" r="4" fill="#7eb8ff"/>
+    
+    <text x="100" y="130" font-family="Monaco, 'Courier New', monospace" font-size="20" fill="#ffffff" text-anchor="middle">AI</text>
+    <text x="100" y="155" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#7eb8ff" text-anchor="middle">助手 · Assistant</text>
+    
+    <!-- Comment bubble -->
+    <g transform="translate(-190, 20)">
+      <rect x="0" y="0" width="180" height="60" fill="none" stroke="#00ff88" stroke-width="2" rx="8"/>
+      <polygon points="190,30 180,25 180,35" fill="#0a2a5a" stroke="#00ff88" stroke-width="2"/>
+      <text x="15" y="25" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#00ff88">&lt;comment by="ai"&gt;</text>
+      <text x="15" y="45" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#ffffff">已添加详细说明</text>
+    </g>
+  </g>
+  
+  <!-- Connection arrows -->
+  <g stroke="#5a9aff" stroke-width="2" fill="none">
+    <!-- Human to document -->
+    <path d="M 440 400 L 620 400" stroke-dasharray="8,4"/>
+    <polygon points="620,395 620,405 635,400" fill="#5a9aff"/>
+    
+    <!-- Document to AI -->
+    <path d="M 980 400 L 1120 400" stroke-dasharray="8,4"/>
+    <polygon points="1120,395 1120,405 1135,400" fill="#5a9aff"/>
+  </g>
+  
+  <!-- Bottom: Three feature boxes -->
+  <g transform="translate(100, 700)">
+    <!-- Box 1 -->
+    <rect x="0" y="0" width="400" height="120" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <rect x="0" y="0" width="400" height="35" fill="#1a3a6a" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <text x="20" y="25" font-family="Monaco, 'Courier New', monospace" font-size="16" fill="#ffffff">01 · PARSE</text>
+    <text x="20" y="65" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#7eb8ff">comment-md-core</text>
+    <text x="20" y="90" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#aaaaaa">解析 · 序列化 · 导出 AI 视图</text>
+    
+    <!-- Box 2 -->
+    <rect x="450" y="0" width="400" height="120" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <rect x="450" y="0" width="400" height="35" fill="#1a3a6a" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <text x="470" y="25" font-family="Monaco, 'Courier New', monospace" font-size="16" fill="#ffffff">02 · RENDER</text>
+    <text x="470" y="65" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#7eb8ff">comment-md-remark-plugin</text>
+    <text x="470" y="90" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#aaaaaa">Remark 插件 · react-markdown 集成</text>
+    
+    <!-- Box 3 -->
+    <rect x="900" y="0" width="400" height="120" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <rect x="900" y="0" width="400" height="35" fill="#1a3a6a" stroke="#ffffff" stroke-width="2" rx="4"/>
+    <text x="920" y="25" font-family="Monaco, 'Courier New', monospace" font-size="16" fill="#ffffff">03 · INTERACT</text>
+    <text x="920" y="65" font-family="Monaco, 'Courier New', monospace" font-size="14" fill="#7eb8ff">comment-md-react-ui</text>
+    <text x="920" y="90" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#aaaaaa">侧边栏 · 高亮 · 主题 · i18n</text>
+  </g>
+  
+  <!-- Corner decorations -->
+  <g stroke="#5a9aff" stroke-width="1" fill="none">
+    <!-- Top left corner -->
+    <path d="M 20 40 L 20 20 L 40 20"/>
+    <circle cx="20" cy="20" r="3" fill="#5a9aff"/>
+    
+    <!-- Top right corner -->
+    <path d="M 1560 20 L 1580 20 L 1580 40"/>
+    <circle cx="1580" cy="20" r="3" fill="#5a9aff"/>
+    
+    <!-- Bottom left corner -->
+    <path d="M 20 860 L 20 880 L 40 880"/>
+    <circle cx="20" cy="880" r="3" fill="#5a9aff"/>
+    
+    <!-- Bottom right corner -->
+    <path d="M 1560 880 L 1580 880 L 1580 860"/>
+    <circle cx="1580" cy="880" r="3" fill="#5a9aff"/>
+  </g>
+  
+  <!-- Version tag -->
+  <text x="1550" y="880" font-family="Monaco, 'Courier New', monospace" font-size="12" fill="#5a9aff" text-anchor="end">v0.1.1 · MIT License</text>
+</svg>

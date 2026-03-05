@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb"/>
+      <stop offset="100%" style="stop-color:#f5576c"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGrad3)"/>
+  
+  <!-- Decorative shapes -->
+  <circle cx="120" cy="200" r="150" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="900" cy="850" r="200" fill="rgba(255,255,255,0.08)"/>
+  
+  <!-- Title -->
+  <text x="540" y="120" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="48" fill="#ffffff" text-anchor="middle" font-weight="bold">📦 三个 NPM 包</text>
+  
+  <!-- Package cards -->
+  <!-- Card 1 -->
+  <rect x="80" y="200" width="920" height="200" fill="rgba(255,255,255,0.95)" rx="20"/>
+  <text x="140" y="270" font-family="Monaco, 'Courier New', monospace" font-size="32" fill="#667eea" font-weight="bold">comment-md-core</text>
+  <text x="140" y="320" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" fill="#666666">🔧 核心解析器</text>
+  <text x="140" y="370" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" fill="#999999">parse · serialize · exportAiView · resolve</text>
+  
+  <!-- Card 2 -->
+  <rect x="80" y="440" width="920" height="200" fill="rgba(255,255,255,0.95)" rx="20"/>
+  <text x="140" y="510" font-family="Monaco, 'Courier New', monospace" font-size="32" fill="#11998e" font-weight="bold">comment-md-remark-plugin</text>
+  <text x="140" y="560" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" fill="#666666">🔌 Remark 插件</text>
+  <text x="140" y="610" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" fill="#999999">与 react-markdown 无缝集成</text>
+  
+  <!-- Card 3 -->
+  <rect x="80" y="680" width="920" height="200" fill="rgba(255,255,255,0.95)" rx="20"/>
+  <text x="140" y="750" font-family="Monaco, 'Courier New', monospace" font-size="32" fill="#f5576c" font-weight="bold">comment-md-react-ui</text>
+  <text x="140" y="800" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" fill="#666666">⚛️ React 组件库</text>
+  <text x="140" y="850" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" fill="#999999">Sidebar · Highlight · Theme · i18n</text>
+  
+  <!-- Install command -->
+  <rect x="180" y="940" width="720" height="70" fill="rgba(0,0,0,0.2)" rx="35"/>
+  <text x="540" y="985" font-family="Monaco, 'Courier New', monospace" font-size="24" fill="#ffffff" text-anchor="middle">npm install comment-md-core</text>
+</svg>

@@ -1,0 +1,193 @@
+{
+  "name": "markdown-comments",
+  "displayName": "Markdown Comments",
+  "description": "Markdown preview with outline navigation and collaborative comments for human-AI workflows",
+  "version": "0.2.0",
+  "publisher": "huyansheng",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huyansheng3/markdown-comment"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "markdown",
+    "comments",
+    "outline",
+    "annotation",
+    "collaboration",
+    "AI",
+    "preview"
+  ],
+  "icon": "media/icon.png",
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "markdownOutline",
+          "name": "Markdown Outline",
+          "when": "resourceLangId == markdown",
+          "icon": "$(list-tree)"
+        },
+        {
+          "id": "markdownComments",
+          "name": "Comments",
+          "when": "resourceLangId == markdown",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "markdown-comments.openPreview",
+        "title": "Open Preview with Comments",
+        "category": "Markdown Comments",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "markdown-comments.openPreviewToSide",
+        "title": "Open Preview to Side with Comments",
+        "category": "Markdown Comments",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "markdown-comments.toggleComments",
+        "title": "Toggle Comments Panel",
+        "category": "Markdown Comments",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "markdown-comments.addComment",
+        "title": "Add Comment",
+        "category": "Markdown Comments",
+        "icon": "$(add)"
+      },
+      {
+        "command": "markdown-comments.resolveThread",
+        "title": "Resolve Thread",
+        "category": "Markdown Comments",
+        "icon": "$(check)"
+      },
+      {
+        "command": "markdown-comments.refreshOutline",
+        "title": "Refresh Outline",
+        "category": "Markdown Comments",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "markdown-comments.goToHeading",
+        "title": "Go to Heading",
+        "category": "Markdown Comments"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "markdown-comments.refreshOutline",
+          "when": "view == markdownOutline",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "markdown-comments.openPreviewToSide",
+          "when": "resourceLangId == markdown",
+          "group": "navigation"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "markdown-comments.addComment",
+          "when": "resourceLangId == markdown && editorHasSelection",
+          "group": "markdown-comments"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "markdown-comments.openPreview",
+          "when": "resourceLangId == markdown"
+        },
+        {
+          "command": "markdown-comments.openPreviewToSide",
+          "when": "resourceLangId == markdown"
+        },
+        {
+          "command": "markdown-comments.toggleComments",
+          "when": "markdownCommentsPreviewFocus"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "markdown-comments.openPreviewToSide",
+        "key": "ctrl+shift+v",
+        "mac": "cmd+shift+v",
+        "when": "resourceLangId == markdown"
+      }
+    ],
+    "configuration": {
+      "title": "Markdown Comments",
+      "properties": {
+        "markdownComments.preview.openPreviewOnOpen": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically open preview when opening a Markdown file"
+        },
+        "markdownComments.preview.showComments": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show comments panel in the preview by default"
+        },
+        "markdownComments.preview.showOutline": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show outline navigation in the preview by default"
+        },
+        "markdownComments.outline.showLineNumbers": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show line numbers in the outline"
+        },
+        "markdownComments.comments.highlightColor": {
+          "type": "string",
+          "default": "rgba(255, 212, 0, 0.2)",
+          "description": "Background color for highlighted annotations"
+        },
+        "markdownComments.comments.resolvedHighlightColor": {
+          "type": "string",
+          "default": "rgba(0, 200, 0, 0.1)",
+          "description": "Background color for resolved annotations"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.config.mjs",
+    "watch": "node esbuild.config.mjs --watch",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^2.22.0",
+    "esbuild": "^0.19.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "comment-md-core": "workspace:*",
+    "marked": "^12.0.0",
+    "marked-gfm-heading-id": "^3.1.0",
+    "marked-highlight": "^2.1.0"
+  }
+}

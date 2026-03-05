@@ -6,7 +6,7 @@
 
 import { parse, serialize } from '../parser';
 import type { ApplyEditsResult, Annotation } from '../types';
-import { hashContent, getCurrentTimestamp } from '../utils';
+import { hashContent, getCurrentTimestamp, generateId } from '../utils';
 
 /**
  * Apply edits to the document and detect which annotations should be auto-resolved
@@ -97,42 +97,41 @@ export function addComment(
 }
 
 /**
- * Create a new annotation on content
+ * Create a new annotation on content - inline in the source
+ * This function finds the content in the source and wraps it with annotation tags
  */
 export function createAnnotation(
   source: string,
   options: {
     id?: string;
     content: string;
-    comment: { by: string; content: string };
+    comment: { by: string; content: string; time?: string };
+    position?: {
+      start: { line: number; column: number };
+      end: { line: number; column: number };
+    };
   }
-): { source: string; annotation: Annotation } {
-  const parseResult = parse(source);
+): string {
+  const id = options.id || generateId();
+  const time = options.comment.time || getCurrentTimestamp();
   
-  const id = options.id || `c${Date.now().toString(36)}`;
+  // Find the content in the source
+  const contentToWrap = options.content;
+  const index = source.indexOf(contentToWrap);
   
-  const newAnnotation: Annotation = {
-    id,
-    status: 'open',
-    content: options.content,
-    contentHash: hashContent(options.content),
-    comments: [
-      {
-        by: options.comment.by,
-        time: getCurrentTimestamp(),
-        content: options.comment.content,
-      },
-    ],
-    position: {
-      start: { line: 0, column: 0 },
-      end: { line: 0, column: 0 },
-    },
-  };
+  if (index === -1) {
+    throw new Error(`Content not found in source: "${contentToWrap.substring(0, 50)}..."`);
+  }
   
-  parseResult.annotations.push(newAnnotation);
+  // Build the annotation block
+  const annotationStart = `<annotation id="${id}" status="open">\n\n`;
+  const annotationEnd = `\n\n<comment by="${options.comment.by}" time="${time}">\n${options.comment.content}\n</comment>\n\n</annotation>`;
   
-  return {
-    source: serialize(parseResult.cleanMarkdown, parseResult.annotations),
-    annotation: newAnnotation,
-  };
+  // Replace the content with the annotated version
+  const before = source.substring(0, index);
+  const after = source.substring(index + contentToWrap.length);
+  
+  const newSource = before + annotationStart + contentToWrap + annotationEnd + after;
+  
+  return newSource;
 }

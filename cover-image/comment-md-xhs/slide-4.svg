@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe"/>
+      <stop offset="100%" style="stop-color:#00f2fe"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGrad4)"/>
+  
+  <!-- Decorative shapes -->
+  <circle cx="950" cy="200" r="180" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="100" cy="900" r="150" fill="rgba(255,255,255,0.1)"/>
+  
+  <!-- Title -->
+  <text x="540" y="120" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="48" fill="#ffffff" text-anchor="middle" font-weight="bold">🚀 使用场景</text>
+  
+  <!-- Scenario cards -->
+  <!-- Card 1 -->
+  <rect x="80" y="200" width="920" height="230" fill="rgba(255,255,255,0.95)" rx="20"/>
+  <text x="140" y="270" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" fill="#4facfe" font-weight="bold">场景一：AI 写作助手</text>
+  <text x="140" y="330" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">🤖 AI 生成文章</text>
+  <text x="140" y="375" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">👤 人类添加评论：这段太啰嗦</text>
+  <text x="140" y="420" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">🤖 AI 读取评论并修改 → resolve</text>
+  
+  <!-- Card 2 -->
+  <rect x="80" y="470" width="920" height="230" fill="rgba(255,255,255,0.95)" rx="20"/>
+  <text x="140" y="540" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" fill="#00c9a7" font-weight="bold">场景二：代码 Review</text>
+  <text x="140" y="600" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">🤖 AI Review 代码，添加评论</text>
+  <text x="140" y="645" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">👤 开发者查看建议</text>
+  <text x="140" y="690" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">👤 修复问题 → resolve</text>
+  
+  <!-- Card 3 -->
+  <rect x="80" y="740" width="920" height="230" fill="rgba(255,255,255,0.95)" rx="20"/>
+  <text x="140" y="810" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" fill="#f5576c" font-weight="bold">场景三：文档协作</text>
+  <text x="140" y="870" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">👥 多人讨论 API 设计</text>
+  <text x="140" y="915" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">🤖 AI 总结讨论结果</text>
+  <text x="140" y="960" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">📝 达成共识 → resolve all</text>
+  
+  <!-- Footer -->
+  <text x="540" y="1040" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="rgba(255,255,255,0.9)" text-anchor="middle">人机协作，高效迭代 ✨</text>
+</svg>

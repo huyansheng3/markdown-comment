@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect x="4" y="4" width="120" height="120" rx="20" ry="20" fill="url(#bg)"/>
+  
+  <!-- Markdown M symbol -->
+  <path d="M28 88V40h12l14 24 14-24h12v48h-12V60l-14 22-14-22v28H28z" fill="white" opacity="0.9"/>
+  
+  <!-- Comment bubble -->
+  <g transform="translate(70, 50)">
+    <path d="M0 0h40c4.4 0 8 3.6 8 8v20c0 4.4-3.6 8-8 8H18l-10 10V36H0c-4.4 0-8-3.6-8-8V8c0-4.4 3.6-8 8-8z" fill="white"/>
+    <circle cx="10" cy="18" r="3" fill="#4F46E5"/>
+    <circle cx="22" cy="18" r="3" fill="#4F46E5"/>
+    <circle cx="34" cy="18" r="3" fill="#4F46E5"/>
+  </g>
+</svg>

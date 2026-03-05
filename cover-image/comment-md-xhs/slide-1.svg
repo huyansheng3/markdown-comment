@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#764ba2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="900" cy="100" r="200" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="100" cy="900" r="150" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Main title -->
+  <text x="540" y="180" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="72" fill="#ffffff" text-anchor="middle" font-weight="bold">comment-md</text>
+  <text x="540" y="250" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="36" fill="rgba(255,255,255,0.8)" text-anchor="middle">让 AI 和人类在文档上协作评论</text>
+  
+  <!-- Content card -->
+  <rect x="80" y="320" width="920" height="600" fill="rgba(255,255,255,0.95)" rx="24"/>
+  
+  <!-- Card content -->
+  <text x="140" y="400" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" fill="#333333" font-weight="bold">🎯 痛点</text>
+  <text x="140" y="450" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">Markdown 没有原生评论能力</text>
+  <text x="140" y="490" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">AI 协作时无法精准反馈</text>
+  
+  <line x1="140" y1="530" x2="940" y2="530" stroke="#eeeeee" stroke-width="2"/>
+  
+  <text x="140" y="590" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="32" fill="#333333" font-weight="bold">💡 解决方案</text>
+  <text x="140" y="640" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">✅ 行内注解 - 包裹任意内容</text>
+  <text x="140" y="685" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">✅ 评论线程 - 多轮对话</text>
+  <text x="140" y="730" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">✅ 状态管理 - open / resolved</text>
+  <text x="140" y="775" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#666666">✅ React 组件 - 开箱即用</text>
+  
+  <line x1="140" y1="820" x2="940" y2="820" stroke="#eeeeee" stroke-width="2"/>
+  
+  <text x="140" y="880" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#999999">npm install comment-md-core</text>
+  
+  <!-- Footer tag -->
+  <rect x="380" y="960" width="320" height="60" fill="rgba(0,0,0,0.3)" rx="30"/>
+  <text x="540" y="1000" font-family="'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="24" fill="#ffffff" text-anchor="middle">#开源项目 #AI协作</text>
+</svg>
