@@ -538,6 +538,13 @@ export class MarkdownPreviewPanel {
       border-left-color: var(--color-accent);
     }
     
+    .outline-item.active {
+      background: rgba(var(--vscode-focusBorder), 0.1);
+      color: var(--color-accent);
+      border-left-color: var(--color-accent);
+      font-weight: 600;
+    }
+    
     .outline-item.level-1 { padding-left: 16px; font-weight: 600; color: var(--color-text-primary); }
     .outline-item.level-2 { padding-left: 28px; }
     .outline-item.level-3 { padding-left: 40px; font-size: 12px; }
@@ -567,6 +574,7 @@ export class MarkdownPreviewPanel {
       margin-bottom: 16px;
       font-weight: 600;
       line-height: 1.3;
+      scroll-margin-top: 20px;
     }
     
     .markdown-body h1 { font-size: 2em; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.3em; }
@@ -1140,13 +1148,13 @@ export class MarkdownPreviewPanel {
       // Inline code
       html = html.replace(/\`([^\`]+)\`/g, '<code>$1</code>');
       
-      // Headers
-      html = html.replace(/^###### (.+)$/gm, '<h6>$1</h6>');
-      html = html.replace(/^##### (.+)$/gm, '<h5>$1</h5>');
-      html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
-      html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-      html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-      html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+      // Headers - add id for navigation
+      html = html.replace(/^###### (.+)$/gm, function(m, text) { return '<h6 id="' + slugify(text) + '">' + text + '</h6>'; });
+      html = html.replace(/^##### (.+)$/gm, function(m, text) { return '<h5 id="' + slugify(text) + '">' + text + '</h5>'; });
+      html = html.replace(/^#### (.+)$/gm, function(m, text) { return '<h4 id="' + slugify(text) + '">' + text + '</h4>'; });
+      html = html.replace(/^### (.+)$/gm, function(m, text) { return '<h3 id="' + slugify(text) + '">' + text + '</h3>'; });
+      html = html.replace(/^## (.+)$/gm, function(m, text) { return '<h2 id="' + slugify(text) + '">' + text + '</h2>'; });
+      html = html.replace(/^# (.+)$/gm, function(m, text) { return '<h1 id="' + slugify(text) + '">' + text + '</h1>'; });
       
       // Bold and italic
       html = html.replace(/\\*\\*\\*(.+?)\\*\\*\\*/g, '<strong><em>$1</em></strong>');
@@ -1197,10 +1205,44 @@ export class MarkdownPreviewPanel {
         list.innerHTML = '<li class="outline-item" style="opacity:0.5;cursor:default">No headings found</li>';
         return;
       }
-      list.innerHTML = headings.map(function(h) {
-        return '<li class="outline-item level-' + h.level + '" onclick="goToLine(' + h.line + ')">' + 
+      list.innerHTML = headings.map(function(h, index) {
+        return '<li class="outline-item level-' + h.level + '" data-heading-index="' + index + '" data-heading-id="' + slugify(h.text) + '" onclick="scrollToHeading(\\'' + slugify(h.text) + '\\')">' + 
           escapeHtml(h.text) + '</li>';
       }).join('');
+    }
+    
+    // Scroll to heading in content area
+    function scrollToHeading(headingId) {
+      const contentArea = document.getElementById('contentArea');
+      const headingEl = document.getElementById(headingId);
+      
+      if (headingEl) {
+        headingEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Update active state in outline
+        document.querySelectorAll('.outline-item').forEach(function(item) {
+          item.classList.remove('active');
+        });
+        const outlineItem = document.querySelector('.outline-item[data-heading-id="' + headingId + '"]');
+        if (outlineItem) {
+          outlineItem.classList.add('active');
+        }
+        
+        // Flash effect on heading
+        headingEl.style.transition = 'background-color 0.3s ease';
+        headingEl.style.backgroundColor = 'rgba(251, 191, 36, 0.2)';
+        setTimeout(function() {
+          headingEl.style.backgroundColor = '';
+        }, 1000);
+      }
+    }
+    
+    // Slugify text for heading IDs
+    function slugify(text) {
+      return text.toLowerCase()
+        .replace(/[^a-z0-9\\u4e00-\\u9fa5]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .substring(0, 50) || 'heading';
     }
     
     // Render markdown with annotation highlighting
@@ -1484,10 +1526,56 @@ export class MarkdownPreviewPanel {
       }
     });
     
+    // Scroll spy - highlight current heading in outline
+    function updateActiveOutlineItem() {
+      const contentArea = document.getElementById('contentArea');
+      const headingElements = contentArea.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      const scrollTop = contentArea.scrollTop;
+      const offset = 100; // Offset from top
+      
+      let activeHeadingId = null;
+      
+      headingElements.forEach(function(heading) {
+        const rect = heading.getBoundingClientRect();
+        const contentAreaRect = contentArea.getBoundingClientRect();
+        const relativeTop = rect.top - contentAreaRect.top;
+        
+        if (relativeTop <= offset) {
+          activeHeadingId = heading.id;
+        }
+      });
+      
+      // Update outline active state
+      document.querySelectorAll('.outline-item').forEach(function(item) {
+        item.classList.remove('active');
+      });
+      
+      if (activeHeadingId) {
+        const activeItem = document.querySelector('.outline-item[data-heading-id="' + activeHeadingId + '"]');
+        if (activeItem) {
+          activeItem.classList.add('active');
+          // Scroll outline to show active item if needed
+          activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    }
+    
+    // Add scroll listener for scroll spy
+    document.getElementById('contentArea').addEventListener('scroll', function() {
+      // Debounce scroll spy updates
+      if (window.scrollSpyTimeout) {
+        clearTimeout(window.scrollSpyTimeout);
+      }
+      window.scrollSpyTimeout = setTimeout(updateActiveOutlineItem, 50);
+    });
+    
     // Initialize
     renderOutline();
     renderMarkdown();
     renderComments();
+    
+    // Initial scroll spy update
+    setTimeout(updateActiveOutlineItem, 100);
     
     // Handle incremental updates from extension (to preserve scroll position)
     window.addEventListener('message', function(event) {
