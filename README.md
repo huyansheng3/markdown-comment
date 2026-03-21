@@ -38,6 +38,8 @@ English | [中文](./README.zh-CN.md)
 
 **Markdown Comments** — A Notion-style Markdown preview with floating outline and inline comments.
 
+![VSCode Extension Preview](docs/vscode-extension-preview.png)
+
 ### Key Features
 
 - 📄 **Notion-style Preview** — Clean, minimal design with floating panels
