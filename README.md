@@ -11,6 +11,8 @@ English | [中文](./README.zh-CN.md)
 
 **comment-md** enables inline annotations and threaded comments directly within Markdown documents. Designed for seamless collaboration between humans and AI, it provides a structured yet readable syntax for document review workflows.
 
+![VSCode Extension Preview](docs/vscode-extension-preview.png)
+
 ### Key Use Cases
 
 - **AI outputs document → Human comments → AI revises**

@@ -11,6 +11,8 @@
 
 **comment-md** 允许你在 Markdown 文档中直接添加行内注解和评论线程。专为人类与 AI 之间的无缝协作设计，提供结构化且可读的语法，支持文档审阅工作流。
 
+![VSCode Extension Preview](docs/vscode-extension-preview.png)
+
 ### 核心使用场景
 
 - **AI 输出文档 → 人类评论 → AI 修改**
