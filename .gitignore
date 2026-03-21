@@ -32,4 +32,4 @@ coverage/
 .obsidian/
 
 packages/examples/react-markdown-demo/node_modules
-packages/examples/react-markdown-demo/dist
+packages/examples/react-markdown-demo/distimage.png
