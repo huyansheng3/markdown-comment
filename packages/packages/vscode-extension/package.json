@@ -2,7 +2,7 @@
   "name": "markdown-comments",
   "displayName": "Markdown Comments",
   "description": "Markdown preview with outline navigation and collaborative comments for human-AI workflows",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "huyansheng",
   "repository": {
     "type": "git",

@@ -2,6 +2,8 @@
 
 A Notion-style Markdown preview with floating outline navigation and collaborative inline comments for human-AI workflows.
 
+![Preview](https://raw.githubusercontent.com/huyansheng3/markdown-comment/main/docs/vscode-extension-preview.png)
+
 ## ✨ Features
 
 ### 📄 Notion-style Markdown Preview
