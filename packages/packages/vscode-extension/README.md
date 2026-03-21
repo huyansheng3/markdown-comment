@@ -1,106 +1,142 @@
-# Markdown Comments
+# Markdown Comments - VSCode Extension
 
-A VSCode extension for Markdown preview with outline navigation and collaborative comments for human-AI workflows.
+A Notion-style Markdown preview with floating outline navigation and collaborative inline comments for human-AI workflows.
 
-## Features
+## ✨ Features
 
-### 📄 Markdown Preview with Comments
+### 📄 Notion-style Markdown Preview
 
-- **Rich Markdown Preview** - Render Markdown with full styling support
-- **Three-panel layout** - Outline (left) + Content (center) + Comments (right)
-- **Auto-open on file open** - Preview automatically opens when you open a .md file
-- **Keyboard shortcut** - `Cmd+Shift+V` (Mac) / `Ctrl+Shift+V` (Windows) to open preview
+- **Clean, minimal design** - Notion-inspired UI with floating panels and bottom status bar
+- **Full Markdown rendering** - Headings, code blocks, tables, images, links, and more
+- **Frontmatter support** - YAML frontmatter displayed as a beautiful metadata card
+- **Auto-open on file open** - Preview automatically opens when you open a `.md` file
+- **Keyboard shortcut** - `Cmd+Shift+V` (Mac) / `Ctrl+Shift+V` (Windows)
 
-### 📋 Outline Navigation (Left Panel)
+### 📋 Floating Outline Panel
 
-- **Hierarchical outline view** - See all headings (H1-H6) in a tree structure
-- **Quick navigation** - Click any heading to jump to its location
-- **Toggleable** - Show/hide with the toolbar button
+- **Hierarchical outline** - See all headings (H1-H6) in a tree structure
+- **Click to jump** - Smooth scrolling to any heading
+- **Scroll spy** - Active heading automatically highlighted as you scroll
+- **Hover to show** - Panel appears when hovering the left edge
+- **Toggle via status bar** - Pin/unpin from the bottom status bar
 
-### 💬 Comments Panel (Right Panel)
+### 💬 Inline Comments & Annotations
 
-- **View all comments** - See all annotation threads in one place
-- **Status tracking** - Open vs Resolved threads clearly marked
-- **Toggleable** - Show/hide with the toolbar button or settings
-- **Visual highlighting** - Commented sections highlighted in preview
+- **Select & comment** - Select text → floating toolbar → add comment
+- **In-place input** - Comment input appears right where you selected
+- **Visual highlighting** - Commented text highlighted with amber underline
+- **Annotation status** - Open (amber) / Resolved (green) markers
+- **Writes to file** - Comments stored as `<annotation>` tags in the Markdown source
+- **AI-readable** - Comment syntax designed for AI tools to parse and respond
 
-## Comment Syntax
+### 🎨 Design Highlights
 
-This extension uses the `comment-md` annotation syntax:
+- Notion-like color system (light & dark mode)
+- Floating panels with popup shadows (no borders)
+- Bottom status bar showing heading & comment counts
+- Smooth animations and transitions
+- Responsive layout adapts to window size
+
+## 📥 Install
+
+### From VSIX (Manual Install)
+
+Download the latest `.vsix` from [GitHub Releases](https://github.com/huyansheng3/markdown-comment/releases), then:
+
+```bash
+code --install-extension markdown-comments-0.2.0.vsix
+```
+
+Or in VSCode: `Cmd+Shift+P` → "Extensions: Install from VSIX..."
+
+### From Source
+
+```bash
+git clone https://github.com/huyansheng3/markdown-comment.git
+cd markdown-comment/packages/packages/vscode-extension
+npm install
+npm run package
+code --install-extension markdown-comments-0.2.0.vsix
+```
+
+## 📖 Usage
+
+### Adding Comments
+
+1. Open any `.md` file — preview opens automatically
+2. Select text in the preview area
+3. Click the 💬 button in the floating toolbar
+4. Type your comment and press `Cmd+Enter` to submit
+
+### Viewing Comments
+
+- Click 💬 in the bottom status bar to toggle the comments panel
+- Click highlighted text to see associated comments
+- Comments panel shows all threads with open/resolved status
+
+### Outline Navigation
+
+- Hover the left edge of the preview to reveal the outline
+- Click 📑 in the bottom status bar to pin the outline panel
+- Click any heading to smooth-scroll to it
+
+### Resolving Comments
+
+- Open the comments panel
+- Click "✓ Resolve" on any open comment thread
+
+## ⚙️ Configuration
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `markdownComments.preview.openPreviewOnOpen` | `true` | Auto-open preview when opening a .md file |
+| `markdownComments.preview.showComments` | `false` | Show comments panel by default |
+| `markdownComments.preview.showOutline` | `false` | Show outline panel by default |
+| `markdownComments.comments.highlightColor` | `rgba(255, 212, 0, 0.2)` | Highlight color for open annotations |
+| `markdownComments.comments.resolvedHighlightColor` | `rgba(0, 200, 0, 0.1)` | Highlight color for resolved annotations |
+
+## ⌨️ Keyboard Shortcuts
+
+| Shortcut | Command |
+|----------|---------|
+| `Cmd+Shift+V` / `Ctrl+Shift+V` | Open Preview to Side |
+| `Cmd+Enter` | Submit comment (in comment input) |
+| `Escape` | Cancel comment input |
+
+## 🗨️ Comment Syntax
+
+Comments are stored inline in the Markdown source using `<annotation>` tags:
 
 ```markdown
 <annotation id="c1" status="open">
 
-This paragraph has comments attached to it.
+This text has comments attached.
 
-<comment by="human" time="2026-02-28T14:00:00Z">
-Consider adding more details here.
+<comment by="human" time="2026-03-21T08:00:00Z">
+Consider rephrasing this section.
 </comment>
 
-<comment by="ai" time="2026-02-28T14:05:00Z">
-Good suggestion! I'll expand this section.
+<comment by="ai" time="2026-03-21T08:01:00Z">
+Good suggestion! Updated.
 </comment>
 
 </annotation>
 ```
 
-## Usage
+This format is designed to be:
+- **Human-readable** in raw Markdown
+- **AI-parseable** for automated review workflows
+- **Git-friendly** for version control
 
-### Adding Comments
-
-1. Select text in your Markdown file
-2. Right-click and choose "Add Comment" (or use the command palette)
-3. Enter your comment text
-4. The annotation will be added to your document
-
-### Viewing Comments
-
-- Open the "Comments" panel in the Explorer sidebar
-- Click any comment to jump to its location
-- Hover over highlighted text to see comment details
-
-### Resolving Comments
-
-- Click the resolve button in the hover popup
-- Or use the command palette: "Markdown Comments: Resolve Thread"
-
-## Configuration
-
-| Setting | Default | Description |
-|---------|---------|-------------|
-| `markdownComments.preview.openPreviewOnOpen` | `true` | Automatically open preview when opening a Markdown file |
-| `markdownComments.preview.showComments` | `true` | Show comments panel in the preview |
-| `markdownComments.preview.showOutline` | `true` | Show outline navigation in the preview |
-| `markdownComments.outline.showLineNumbers` | `false` | Show line numbers in the outline |
-| `markdownComments.comments.highlightColor` | `rgba(255, 212, 0, 0.2)` | Background color for open annotations |
-| `markdownComments.comments.resolvedHighlightColor` | `rgba(0, 200, 0, 0.1)` | Background color for resolved annotations |
-
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `Markdown Comments: Open Preview with Comments` | Open preview in current tab |
-| `Markdown Comments: Open Preview to Side with Comments` | Open preview in side panel |
-| `Markdown Comments: Toggle Comments Panel` | Show/hide comments panel in preview |
-| `Markdown Comments: Add Comment` | Add a comment to selected text |
-| `Markdown Comments: Resolve Thread` | Mark a comment thread as resolved |
-| `Markdown Comments: Refresh Outline` | Manually refresh the outline view |
-
-## Keyboard Shortcuts
-
-| Shortcut | Command |
-|----------|---------|
-| `Cmd+Shift+V` (Mac) / `Ctrl+Shift+V` (Windows) | Open Preview to Side |
-
-## Requirements
+## 📋 Requirements
 
 - VSCode 1.85.0 or higher
 
-## Related Projects
+## 🔗 Related
 
-- [comment-md](https://github.com/huyansheng3/markdown-comment) - Core library for parsing and manipulating Markdown annotations
-- [comment-md-react-ui](https://www.npmjs.com/package/comment-md-react-ui) - React components for rendering comments
+- [comment-md](https://github.com/huyansheng3/markdown-comment) - Core library and React components
+- [Live Demo](https://huyansheng3.github.io/markdown-comment/) - Try the React-based demo
 
-## License
+## 📄 License
 
 MIT © [huyansheng](https://github.com/huyansheng3)

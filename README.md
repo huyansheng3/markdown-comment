@@ -27,11 +27,36 @@ English | [中文](./README.zh-CN.md)
 
 ## 📦 Packages
 
-| Package | Description | NPM |
-|---------|-------------|-----|
+| Package | Description | Install |
+|---------|-------------|---------|
 | `comment-md-core` | Core parser, serializer, and APIs | [![npm](https://img.shields.io/npm/v/comment-md-core.svg)](https://www.npmjs.com/package/comment-md-core) |
 | `comment-md-remark-plugin` | Remark plugin for annotation syntax | [![npm](https://img.shields.io/npm/v/comment-md-remark-plugin.svg)](https://www.npmjs.com/package/comment-md-remark-plugin) |
 | `comment-md-react-ui` | React components (sidebar, highlights, themes) | [![npm](https://img.shields.io/npm/v/comment-md-react-ui.svg)](https://www.npmjs.com/package/comment-md-react-ui) |
+| `markdown-comments` | VSCode Extension with Notion-style preview | [Download VSIX](https://github.com/huyansheng3/markdown-comment/releases) |
+
+## 🔌 VSCode Extension
+
+**Markdown Comments** — A Notion-style Markdown preview with floating outline and inline comments.
+
+### Key Features
+
+- 📄 **Notion-style Preview** — Clean, minimal design with floating panels
+- 📋 **Floating Outline** — Hover left edge to show, scroll spy highlights active heading
+- 💬 **Inline Comments** — Select text → floating toolbar → add comment in-place
+- 📝 **Frontmatter Support** — YAML metadata displayed as a card
+- 🔄 **Writes to File** — Comments stored as `<annotation>` tags in Markdown source
+
+### Install
+
+Download the `.vsix` from [GitHub Releases](https://github.com/huyansheng3/markdown-comment/releases):
+
+```bash
+code --install-extension markdown-comments-0.2.0.vsix
+```
+
+Or in VSCode: `Cmd+Shift+P` → "Extensions: Install from VSIX..."
+
+📖 [Full documentation →](./packages/packages/vscode-extension/README.md)
 
 ## 🔗 Demo
 
@@ -166,7 +191,8 @@ packages/
 ├── packages/
 │   ├── core/              # Core parsing and manipulation
 │   ├── remark-plugin/     # Remark integration
-│   └── react-ui/          # React components
+│   ├── react-ui/          # React components
+│   └── vscode-extension/  # VSCode extension (Notion-style preview)
 ├── examples/
 │   └── react-markdown-demo/  # Demo application
 └── package.json           # Workspace root
